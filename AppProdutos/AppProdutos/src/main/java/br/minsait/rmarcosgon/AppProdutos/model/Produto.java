@@ -1,9 +1,18 @@
 package br.minsait.rmarcosgon.AppProdutos.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "tb_produto")
 public class Produto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false, unique = true)
     private String codBarra;
+    @Column(nullable = false)
     private String nome;
+    @Column(nullable = false)
     private double preco;
 
 
@@ -54,4 +63,5 @@ public class Produto {
     public void setPreco(double preco) {
         this.preco = preco;
     }
+
 }
