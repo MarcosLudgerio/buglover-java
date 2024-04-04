@@ -1,7 +1,6 @@
-package br.minsait.rmarcosgon.AppProdutos.model;
+package br.minsait.rmarcosgon.AppProdutos.models;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Cascade;
 
 @Entity()
 @Table(name = "tb_estoque")

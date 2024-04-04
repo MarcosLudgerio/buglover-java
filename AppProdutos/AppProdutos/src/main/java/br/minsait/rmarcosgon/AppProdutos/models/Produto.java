@@ -1,4 +1,4 @@
-package br.minsait.rmarcosgon.AppProdutos.model;
+package br.minsait.rmarcosgon.AppProdutos.models;
 
 import jakarta.persistence.*;
 

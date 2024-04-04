@@ -1,24 +1,41 @@
 package br.minsait.rmarcosgon.AppProdutos.resources;
 
-import br.minsait.rmarcosgon.AppProdutos.model.Produto;
+import br.minsait.rmarcosgon.AppProdutos.models.Produto;
+import br.minsait.rmarcosgon.AppProdutos.services.ProdutoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/produtos")
 public class ProrutoResource {
+
+    @Autowired
+    ProdutoService produtoService;
+
     @GetMapping("/hello")
     public String hello(){
         return "Olá!";
     }
 
     @GetMapping("/")
-    public Produto getProduto(){
-        Produto p =  new Produto(1L, "1323123", "Java", 1.50);
-        System.out.println(p);
-        return p;
+    public ResponseEntity<List<Produto>> getProdutos(){
+        return ResponseEntity.ok(this.produtoService.produtosList());
     }
+    @PostMapping("/")
+    public ResponseEntity<Produto> save(@RequestBody Produto produto){
+        return ResponseEntity.ok(this.produtoService.criar(produto));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Produto>> getById(@PathVariable Long id){
+        Optional<Produto> produtoOptional = this.produtoService.getProdutoId(id);
+        if(produtoOptional.isPresent()) return ResponseEntity.ok(produtoOptional);
+        return ResponseEntity.notFound().build();
+    }
+
+
 }
