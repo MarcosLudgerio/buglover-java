@@ -11,30 +11,42 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/produtos")
-public class ProrutoResource {
+public class ProdutoResource {
 
     @Autowired
     ProdutoService produtoService;
 
     @GetMapping("/hello")
-    public String hello(){
+    public String hello() {
         return "Olá!";
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<Produto>> getProdutos(){
+    public ResponseEntity<List<Produto>> getProdutos() {
         return ResponseEntity.ok(this.produtoService.produtosList());
     }
+
     @PostMapping("/")
-    public ResponseEntity<Produto> save(@RequestBody Produto produto){
+    public ResponseEntity<Produto> save(@RequestBody Produto produto) {
         return ResponseEntity.ok(this.produtoService.criar(produto));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Produto>> getById(@PathVariable Long id){
+    public ResponseEntity<Optional<Produto>> getById(@PathVariable Long id) {
         Optional<Produto> produtoOptional = this.produtoService.getProdutoId(id);
-        if(produtoOptional.isPresent()) return ResponseEntity.ok(produtoOptional);
+        if (produtoOptional.isPresent()) return ResponseEntity.ok(produtoOptional);
         return ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/")
+    public ResponseEntity<Produto> update(@RequestBody Produto produto) {
+        return ResponseEntity.ok(this.produtoService.update(produto));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id) {
+        this.produtoService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
 
