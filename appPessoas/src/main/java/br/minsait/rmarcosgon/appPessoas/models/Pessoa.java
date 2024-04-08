@@ -1,5 +1,6 @@
 package br.minsait.rmarcosgon.appPessoas.models;
 
+import br.minsait.rmarcosgon.appPessoas.dtos.PessoaDto;
 import jakarta.persistence.*;
 
 @Entity
@@ -22,10 +23,14 @@ public class Pessoa {
         this.documento = documento;
     }
 
+
     public Pessoa() {
        this(0L, "", "");
     }
 
+    public Pessoa(PessoaDto pessoaDto) {
+        this(0L, pessoaDto.getNome(), pessoaDto.getDocumento());
+    }
     public Long getId() {
         return id;
     }
