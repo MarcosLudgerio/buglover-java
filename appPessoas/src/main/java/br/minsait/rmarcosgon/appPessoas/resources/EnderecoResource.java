@@ -22,9 +22,30 @@ public class EnderecoResource {
         return new ResponseEntity<>(this.enderecoService.cadastrarNovoEndereco(endereco), HttpStatus.CREATED);
     }
 
+    @GetMapping("/")
+    public ResponseEntity<?> pegarTodosOsEnderecos() {
+        return new ResponseEntity<>(this.enderecoService.recuperarEnderecos(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> pegarEnderecoPorID(@PathVariable Long id) throws EnderecoNotFoundException {
+        return new ResponseEntity<>(this.enderecoService.pegarEnderecoPorID(id), HttpStatus.OK);
+    }
+
     @GetMapping("/pessoa/{id}")
     public ResponseEntity<?> pegarPessoaComEndereco(@PathVariable Long id) throws PessoaNotFoundException, EnderecoNotFoundException {
         return new ResponseEntity<>(this.enderecoService.recuperarEnderecoDaPessoa(id), HttpStatus.OK);
+    }
+
+    @PutMapping("/")
+    public ResponseEntity<?> atualizarEndereco(@RequestBody Endereco endereco) throws EnderecoNotFoundException {
+        return new ResponseEntity<>(this.enderecoService.atualizarEndereco(endereco), HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> atualizarEndereco(@PathVariable Long id) throws EnderecoNotFoundException {
+        this.enderecoService.apagarEnderec(id);
+        return ResponseEntity.noContent().build();
     }
 
 

@@ -43,4 +43,20 @@ public class EnderecoService {
         Pessoa pessoa = this.pessoaService.pegarPorId(endereco.getPessoa().getId());
         return new PessoaEnderecoDto(pessoa.getNome(), new EnderecoSemPessoa(endereco));
     }
+    public Endereco atualizarEndereco(Endereco endereco) throws EnderecoNotFoundException {
+        Endereco enderecoUpdate = this.pegarEnderecoPorID(endereco.getId());
+        enderecoUpdate.setTipoLogradouro(endereco.getTipoLogradouro());
+        enderecoUpdate.setLogradouro(endereco.getLogradouro());
+        enderecoUpdate.setCep(endereco.getCep());
+        enderecoUpdate.setCidade(endereco.getCidade());
+        enderecoUpdate.setUf(endereco.getUf());
+        enderecoUpdate.setPessoa(endereco.getPessoa());
+        return this.enderecoRepository.save(enderecoUpdate);
+    }
+
+    public boolean apagarEnderec(Long id) throws EnderecoNotFoundException {
+        Endereco endereco = this.pegarEnderecoPorID(id);
+        this.enderecoRepository.delete(endereco);
+        return true;
+    }
 }
