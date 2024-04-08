@@ -39,7 +39,7 @@ public class EnderecoResource {
 
     @PutMapping("/")
     public ResponseEntity<?> atualizarEndereco(@RequestBody Endereco endereco) throws EnderecoNotFoundException {
-        return new ResponseEntity<>(this.enderecoService.atualizarEndereco(endereco), HttpStatus.CREATED);
+        return new ResponseEntity<>(this.enderecoService.atualizarEndereco(endereco), HttpStatus.OK );
     }
 
     @DeleteMapping("/{id}")
