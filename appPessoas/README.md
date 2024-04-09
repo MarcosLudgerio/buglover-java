@@ -6,11 +6,11 @@
 <p align="center">
  <a href="#desc">Descrição</a> •
  <a href="#about">O que a API faz?</a> •
+ <a href="#exemplos">Exemplos</a> •
  <a href="#rotas">Rotas</a> •
- <a href="#exemplos">Modelos</a> •
  <a href="#tecnologias">Tecnologias</a> • 
- <a href="#prerequisitos">Pré requisitos</a> • 
- <a href="#executando">Executar o projeto</a> • 
+ <a href="#prerequisitos">Executar o projeto</a> • 
+ <a href="#executando">Swagger</a> • 
  <a href="#autor">Autor</a>
 </p>
 
@@ -98,6 +98,9 @@ $ cd buglover-java
 $ cd appPessoas
 $ ./mvnw spring-boot:run
 ```
+
+## 📄️ SWAGGER
+Após iniciar a aplicação, é possível consultar a documentação _SWAGGER_, através do link ```http://localhost:8080/swagger-ui/index.html/```
 
 <div id="autor" />
 
