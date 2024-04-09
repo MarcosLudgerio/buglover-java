@@ -34,7 +34,7 @@ public class OpenAPIConfig {
                 .title("API App Pessoas")
                 .version("1.0")
                 .contact(contact)
-                .description("Esta API cadatros de pessoas.")
+                .description("API para cadatros de pessoas")
                 .license(mitLicense);
         return new OpenAPI().info(info).servers(List.of(server));
     }

@@ -54,7 +54,7 @@ public class EnderecoService {
         return this.enderecoRepository.save(enderecoUpdate);
     }
 
-    public boolean apagarEnderec(Long id) throws EnderecoNotFoundException {
+    public boolean apagarEndereco(Long id) throws EnderecoNotFoundException {
         Endereco endereco = this.pegarEnderecoPorID(id);
         this.enderecoRepository.delete(endereco);
         return true;
