@@ -11,8 +11,8 @@ Repositório criado para revisar os princípios básicos da linugagem JAVA na ve
 Esse repositório possui alguns projetos realizados durante o curso de capacitação.
 
 ## ⚙️ Projetos
-- [ ] [HelloWorld](https://github.com/MarcosLudgerio/buglover-java/tree/main/AppProdutos/AppProdutos)
-- [ ] [AppProdutos](https://github.com/MarcosLudgerio/buglover-java/tree/main/FirstProject)
+- [ ] [HelloWorld](https://github.com/MarcosLudgerio/buglover-java/tree/main/FirstProject)
+- [ ] [AppProdutos](https://github.com/MarcosLudgerio/buglover-java/tree/main/AppProdutos/AppProdutos)
 - [ ] [AppMaven](https://github.com/MarcosLudgerio/buglover-java/tree/main/app-maven)
 - [ ] [AppPessoa](https://github.com/MarcosLudgerio/buglover-java/tree/main/appPessoas)
 
