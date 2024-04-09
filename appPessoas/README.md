@@ -41,7 +41,7 @@ Para cadastrar um endereço é necessário primeiramente possuir uma pessoa cada
 }
 ```
 
-##### JSON para criação de poster: <br>
+##### JSON para criação de endereços: <br>
 ```json
 {
   "tipoLogradouro": "RUA",
